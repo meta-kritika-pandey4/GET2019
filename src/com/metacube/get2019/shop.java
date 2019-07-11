@@ -2,7 +2,52 @@ package com.metacube.get2019;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
+class Item
+{
+int id;
+String itemName;
+double price;
+
+/*
+* This method is used to set values of 3 properties and to print them.
+* @param id This is first parameter to set id of item
+* @param itemName this is second parameter to set itemname
+* @param price this is third parameter to set price of item
+*/
+public Item(int id, String itemName, double price){
+this.id=id;
+this.itemName=itemName;
+this.price=price;
+System.out.println(id+"\t\t"+itemName+"\t\t"+price);
+}
+
+/*
+* This method is used to return value of itemname
+* @return string type itemname
+*/
+public String getItemName(){
+return itemName;
+}
+
+/*
+* This method is used to return value of id.
+* @return id of item
+*/
+public int getid(){
+return id;
+}
+
+/*
+* This method is used to return the price of the item.
+* @return price of item
+*/
+public double getprice(){
+return price;
+}
+}
+
 /*
  * This class has the attributes pro(Product),quant(Quantity), 
  * pid(ProductID) and price(Cost) 
@@ -20,58 +65,25 @@ class ShoppingCart
 	 * addItem() adds items in the cart 
 	 * while taking the input from the customer
 	 */
-	void addItem()
+	void addItem(ArrayList<Item> itemList)
 	{
-		System.out.println("Enter the SID of the product to be added\n");
-		int id=ab.nextInt();
-		System.out.println("Enter the quantity required\n");
-		int no=ab.nextInt();
-		switch(id)
-		{
-			case 1:
-				pid.add(1);
-				pro.add("Book");
-				quant.add(no);
-				price.add(1000.00);
-				break;
-			case 2:
-				pid.add(2);
-				pro.add("Pen");
-				quant.add(no);
-				price.add(5.00);
-				break;
-			case 3:
-				pid.add(3);
-				pro.add("Ball");
-				quant.add(no);
-				price.add(100.00);
-				break;
-			case 4:
-				pid.add(4);
-				pro.add("Dress");
-				quant.add(no);
-				price.add(3000.00);
-				break;
-			case 5:
-				pid.add(5);
-				pro.add("Shoes");
-				quant.add(no);
-				price.add(1500.00);
-				break;
-			case 6:
-				pid.add(6);
-				pro.add("Mobile");
-				quant.add(no);
-				price.add(6000.00);
-				break;
-			case 7:
-				pid.add(7);
-				pro.add("Bottle");
-				quant.add(no);
-				price.add(00.00);
-				break;
-			default:
-				System.out.println("Product not found!!\n");
+		System.out.print("enter the item number = ");
+		Scanner ab=new Scanner(System.in);
+		int itemId=ab.nextInt();
+		Iterator<Item> iterator=itemList.iterator();
+		while(iterator.hasNext())
+		{	
+			Item i=(Item)iterator.next();
+			if (i.getid()==itemId)
+			{
+				pro.add(i.getItemName());
+				System.out.print("Enter quantity for the item = ");
+				int itemQuantity=ab.nextInt();
+				quant.add(itemQuantity);
+				price.add(i.getprice());
+				pid.add(i.getid());
+				System.out.println("Item is successfully added into cart");
+			}
 		}
 	}
 	/*
@@ -174,6 +186,7 @@ class ShoppingCart
 		System.out.printf("The total bill is"+sum+"\n");
 	}
 }
+
 /*
  * The items available are shown and choice of the operation is taken input from the customer
  */
@@ -181,18 +194,20 @@ class Shop
 {
 	public static void main(String args[])
 	{
-		
+		ArrayList<Item> itemList=new ArrayList<Item>();
 		ShoppingCart obj=new ShoppingCart();
 		int choice;
-		System.out.println("The items available in the shop are:");	//Items in the shop are displayed
-		System.out.println("SID\tProduct\tPrice");	
-		System.out.println("1.Book\tRs.1000");
-		System.out.println("2.Pen\tRs.50");
-		System.out.println("3.Ball\tRs.100");
-		System.out.println("4.Dress\tRs.3000");
-		System.out.println("5.Shoes\tRs.1500");
-		System.out.println("6.Mobile\tRs.6000");
-		System.out.println("7.Bottle\tRs.200");
+		
+		System.out.println("The items available in the shop are:");
+		itemList.add(new Item(1,"Book",1000.00));
+		itemList.add(new Item(2,"Pen",5.00));
+		itemList.add(new Item(3,"Ball",100.00));
+		itemList.add(new Item(4,"Dress",3000.00));
+		itemList.add(new Item(5,"Shoes",1500.00));
+		itemList.add(new Item(6,"Mobile",6000.00));
+		itemList.add(new Item(7,"Bottle",200.00));
+		
+	
 		do
 		{
 			System.out.println("Choose the operation needed:");
@@ -207,7 +222,8 @@ class Shop
 			switch(choice)
 			{
 				case 1:
-					obj.addItem();
+					
+					obj.addItem(itemList);
 					break;
 				case 2:
 					obj.update();
@@ -228,5 +244,7 @@ class Shop
 	}
 }				
 				
+		
+			
 		
 	
