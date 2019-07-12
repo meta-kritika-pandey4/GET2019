@@ -22,7 +22,7 @@ public class ShoppingCart
 	 * addItem() adds items in the cart 
 	 * while taking the input from the customer
 	 */
-	void addItem(ArrayList<Item> itemList)
+	public void addItem(ArrayList<Item> itemList)
 	{
 		Scanner ab=new Scanner(System.in);
 		
@@ -61,7 +61,7 @@ public class ShoppingCart
 	 * update() is for changing the quantity of a particular item in the cart
 	 * as required by the customer
 	 */
-	void update()
+	public void update()
 	{
 		if(pid.size()==0)
 		{
@@ -107,7 +107,7 @@ public class ShoppingCart
 	 * When customer wants to remove an item
 	 * removeItem() will be used
 	 */
-	void removeItem()
+	public void removeItem()
 	{
 		if(pid.size()==0)
 		{
@@ -148,7 +148,7 @@ public class ShoppingCart
 	 * showCart() is for viewing the cart and its items
 	 * whenever required
 	 */
-	void showCart()
+	public void showCart()
 	{
 		if(pid.size()==0)
 		{
@@ -170,7 +170,7 @@ public class ShoppingCart
 	/*
 	 * makeBill() will give the total amount of items in the cart
 	 */
-	void makeBill()
+	public void makeBill()
 	{
 		int i;
 		double sum=0;
