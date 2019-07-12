@@ -1,6 +1,8 @@
+/*
+ * package com.metacube.
+ */
 package com.metacube.get2019;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 /*
  * The items available are shown and choice of the operation is taken input from the customer
@@ -58,7 +60,7 @@ public class Shop
 					sc.close();
 			}while(choice!=6);
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
 			System.out.println("Invalid input!!");
 		}

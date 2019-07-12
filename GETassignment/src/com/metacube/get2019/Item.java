@@ -1,3 +1,6 @@
+/*
+ * package com.metacube.
+ */
 package com.metacube.get2019;
 
 /*
@@ -7,9 +10,9 @@ package com.metacube.get2019;
  */
 public class Item 
 {	
-	public int id;
-	public String itemName;
-	public double price;
+	private int id;
+	private String itemName;
+	private double price;
 	/*
 	 * This method is used to set values of 3 properties and to print them.
 	 * @param id This is first parameter to set id of item

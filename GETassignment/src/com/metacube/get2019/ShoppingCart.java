@@ -3,6 +3,7 @@
  */
 package com.metacube.get2019;
 import java.util.*;
+
 /*
  * This class has the attributes pro(Product),quant(Quantity), 
  * pid(ProductID) and price(Cost) 
@@ -15,6 +16,7 @@ public class ShoppingCart
 	ArrayList<Integer> quant=new ArrayList<Integer>();
 	ArrayList<Integer> pid=new ArrayList<Integer>();
 	ArrayList<Double> price=new ArrayList<Double>();
+	ArrayList<CartItem> cart=new ArrayList<CartItem>();
 
 	/*
 	 * addItem() adds items in the cart 
@@ -22,10 +24,11 @@ public class ShoppingCart
 	 */
 	void addItem(ArrayList<Item> itemList)
 	{
+		Scanner ab=new Scanner(System.in);
+		
 		try
 		{
-			Scanner ab=new Scanner(System.in);
-			System.out.print("Enter the pid of the product");
+			System.out.print("Enter the product id of the product");
 			int itemId=ab.nextInt();
 			Iterator<Item> iterator=itemList.iterator();
 			while(iterator.hasNext())
@@ -40,13 +43,17 @@ public class ShoppingCart
 					price.add(i.getprice());
 					pid.add(i.getid());
 					System.out.println("Item is successfully added into cart.");
+					CartItem c=new CartItem(i.getid(),itemQuantity,i.getprice(),i.getItemName());
 				}
 			}
-			ab.close();
 		}
-		catch(Exception e)
+		catch(InputMismatchException e)
 		{
 			System.out.println("Wrong input");
+		}
+		finally
+		{
+			ab.close();
 		}
 		
 	}
@@ -62,28 +69,38 @@ public class ShoppingCart
 		}
 		else
 		{
-			System.out.println("Enter the Sid of the product to be updated");
 			Scanner ab=new Scanner(System.in);
-			int i=ab.nextInt();
-			System.out.println("Enter the updated quantity");
-			int up=ab.nextInt();
-			int j=0;
-			while(pid.get(j)!=i)
+			try
 			{
-				j++;
+				System.out.println("Enter the Product id of the product to be updated");
+				int i=ab.nextInt();
+				System.out.println("Enter the quantity to be updated");
+				int up=ab.nextInt();
+				int j=0;
+				while(pid.get(j)!=i)
+				{
+					j++;
+					if(j==pid.size())
+						break;
+				}
 				if(j==pid.size())
-					break;
+				{
+					System.out.println("Item not found in the cart");
+				}
+				else
+				{
+					quant.set(j,up);
+					System.out.println("Item updated");
+				}
 			}
-			if(j==pid.size())
+			catch(InputMismatchException e)
 			{
-				System.out.println("Item not found in the cart");
+				System.out.println("Wrong input");
 			}
-			else
+			finally
 			{
-				quant.set(j,up);
-				System.out.println("Item updated");
+				ab.close();
 			}
-			ab.close();
 		}
 	}
 	/*
@@ -98,23 +115,33 @@ public class ShoppingCart
 		}
 		else
 		{
-			System.out.println("Enter the pid of the item to be removed");
 			Scanner ab=new Scanner(System.in);
-			int k=ab.nextInt();
-			int j=0;
-			while(pid.get(j)!=k)
-				j++;
-			if(j==pid.size())
-				System.out.println("Item not found!");
-			else
+			try
 			{
-				pid.remove(j);
-				pro.remove(j);
-				quant.remove(j);
-				price.remove(j);
-				System.out.println("Item removed");
+				System.out.println("Enter the product id of the item to be removed");
+				int k=ab.nextInt();
+				int j=0;
+				while(pid.get(j)!=k)
+					j++;
+				if(j==pid.size())
+					System.out.println("Item not found!");
+				else
+				{
+					pid.remove(j);
+					pro.remove(j);
+					quant.remove(j);
+					price.remove(j);
+					System.out.println("Item removed");
+				}
 			}
-			ab.close();
+			catch(InputMismatchException e)
+			{
+				System.out.println("Wrong input");
+			}
+			finally
+			{
+				ab.close();	
+			}
 		}
 	}
 	/*
