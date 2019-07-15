@@ -53,6 +53,7 @@ class HexFunctions {
 			for (int i = len - 1; i >= 0; i--) {
 				if (value(hex.charAt(i)) >= base) {
 					System.out.println("Invalid String");
+					System.exit(0);
 				} else {
 					decimalValue += (value(hex.charAt(i)) * power);
 					power *= base;
