@@ -1,8 +1,7 @@
 package com.metacube.get2019;
 
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * This class all the methods
@@ -12,13 +11,13 @@ import java.util.Scanner;
  *
  */
 class HexFunctions {
-
+	
 	/**
 	 * It is method to convert character into decimal value
 	 * @param c Character to be converted
 	 * @return decimal value
 	 */
-	int value(char c) {
+	 int value(char c) {
 		if (c >= '0' && c <= '9') {
 			return (int) c - '0';
 		} else {
@@ -46,19 +45,25 @@ class HexFunctions {
 	 * @return decimal value
 	 */
 	public int hexToDec(String hex, int base) {
-		hex = hex.toUpperCase();
-		int len = hex.length();
-		int power = 1;
 		int decimalValue = 0;
-		for (int i = len - 1; i >= 0; i--) {
-			if (value(hex.charAt(i)) >= base) {
-				System.out.println("Invalid String");
-			} else {
-				decimalValue += (value(hex.charAt(i)) * power);
-				power *= base;
+		try{
+			hex = hex.toUpperCase();
+			int len = hex.length();
+			int power = 1;
+			for (int i = len - 1; i >= 0; i--) {
+				if (value(hex.charAt(i)) >= base) {
+					System.out.println("Invalid String");
+				} else {
+					decimalValue += (value(hex.charAt(i)) * power);
+					power *= base;
+				}
 			}
+			return decimalValue;
 		}
-		return decimalValue;
+		catch(NullPointerException e){
+			System.out.println("Null string is sent!!");
+			return decimalValue;
+		}
 	}
 
 	/**
@@ -69,18 +74,25 @@ class HexFunctions {
 	 */
 	public String decTohex(int value, int base) {
 		String hex = "";
-		if (value == 0) {
-			return "0";
-		}
-		int value1 = value >= 0 ? value : -value;
-		while (value1 > 0) {
-			hex += reval(value1 % base);
-			value1 /= base;
-		}
-		hex += (value < 0 ? "-" : "");
 		StringBuilder hex1 = new StringBuilder();
-		hex1.append(hex);
-		return new String(hex1.reverse());
+		try{
+			if (value == 0) {
+				return "0";
+			}
+			int value1 = value >= 0 ? value : -value;
+			while (value1 > 0) {
+				hex += reval(value1 % base);
+				value1 /= base;
+			}
+			hex += (value < 0 ? "-" : "");
+			hex1.append(hex);
+			return new String(hex1.reverse());
+		}
+		catch(ArithmeticException e){
+			System.out.println("Can't have base 0");
+			String res="Not defined";
+			return res;
+		}
 	}
 
 	/**
@@ -110,6 +122,9 @@ class HexFunctions {
 		catch(InputMismatchException e){
 			System.out.println(e.getStackTrace());
 		}
+		catch(NullPointerException e){
+			System.out.println(e.getStackTrace());
+		}
 	}
 
 	/**
@@ -125,8 +140,7 @@ class HexFunctions {
 		int subtraction = value1 - value2;
 		String hexResult = decTohex(subtraction, base);
 		System.out.println("------------------------");
-		System.out.println("Subtraction of 2 hexadecimal number is = "
-				+ hexResult);
+		System.out.println("Subtraction of 2 hexadecimal number is = "+ hexResult);
 		System.out.println("------------------------");
 	}
 
@@ -166,14 +180,19 @@ class HexFunctions {
 	 * @param base
 	 */
 	public void hexDivision(String hex1, String hex2, int base) {
-
-		int value1 = hexToDec(hex1, base);
-		int value2 = hexToDec(hex2, base);
-		int division = value1 / value2;
-		String hexResult = decTohex(division, base);
-		System.out.println("------------------------");
-		System.out.println("Division of 2 hexadecimal number is =  " + hexResult);
-		System.out.println("------------------------");
+		
+		try{
+			int value1 = hexToDec(hex1, base);
+			int value2 = hexToDec(hex2, base);
+			int division = value1 / value2;
+			String hexResult = decTohex(division, base);
+			System.out.println("------------------------");
+			System.out.println("Division of 2 hexadecimal number is =  " + hexResult);
+			System.out.println("------------------------");
+		}
+		catch(ArithmeticException e){
+			System.out.println("Can't divide by zero!!");
+		}
 	}
 
 	/**
@@ -183,18 +202,23 @@ class HexFunctions {
 	 */
 	public void compareHexStringss(String hex1, String hex2) {
 		int value = hex1.compareTo(hex2);
-		if (value == 0) {
-			System.out.println("------------------------");
-			System.out.println("Both are equal");
-			System.out.println("------------------------");
-		} else if (value == -1) {
-			System.out.println("------------------------");
-			System.out.println("First is smaller than second");
-			System.out.println("------------------------");
-		} else {
-			System.out.println("------------------------");
-			System.out.println("First is greater than second");
-			System.out.println("------------------------");
+		switch(value) {
+			case 0:
+				showMessage("Both are equal");
+				break;
+			case -1:
+				showMessage("First is smaller than second");
+				break;
+			case 1:
+				showMessage("First is greater than second");
+				break;
 		}
+	}
+	
+	public void showMessage(String msg){
+		
+		System.out.println("------------------------");
+		System.out.println(msg);
+		System.out.println("------------------------");
 	}
 }

@@ -38,8 +38,13 @@ public class Hex {
 					sc.nextLine();
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
-					sc.nextLine();
-					obj.hexAddition(n,base);
+					if(base!=16){
+						break;
+					}
+					else{
+						sc.nextLine();
+						obj.hexAddition(n,base);
+					}
 					break;
 				case 2:
 					System.out.print("Enter the first hexadecimal String = ");
@@ -48,8 +53,14 @@ public class Hex {
 					hex2 = sc.nextLine();
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
-					sc.nextLine();
-					obj.hexSubtraction(hex1, hex2, base);
+					if(base!=16){
+						System.out.println("Only base 16 is applicable");
+						break;
+					}
+					else{
+						sc.nextLine();
+						obj.hexSubtraction(hex1, hex2, base);
+					}
 					break;
 				case 3:
 					System.out.print("Enter the no of terms you want to multiply = ");
@@ -57,8 +68,14 @@ public class Hex {
 					sc.nextLine();
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
-					sc.nextLine();
-					obj.hexMultiplication(n,base);
+					if(base!=16){
+						System.out.println("Only base 16 is applicable");
+						break;
+					}
+					else{
+						sc.nextLine();
+						obj.hexMultiplication(n,base);
+					}
 					break;
 				case 4:
 					System.out.print("Enter the first hexadecimal String = ");
@@ -67,8 +84,14 @@ public class Hex {
 					hex2 = sc.nextLine();
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
-					sc.nextLine();
-					obj.hexDivision(hex1, hex2, base);
+					if(base!=16){
+						System.out.println("Only base 16 is applicable");
+						break;
+					}
+					else{
+						sc.nextLine();
+						obj.hexDivision(hex1, hex2, base);
+					}
 					break;
 				case 5:
 					System.out.print("Enter the first hexadecimal String = ");
@@ -76,18 +99,31 @@ public class Hex {
 					System.out.print("Enter the second hexadecimal String = ");
 					hex2 = sc.nextLine();
 					System.out.print("Enter the base = ");
-					base = sc.nextInt();
-					sc.nextLine();
-					obj.compareHexStringss(hex1, hex2);
+					base=sc.nextInt();
+					if(base!=16){
+						System.out.println("Only base 16 is applicable");
+						break;
+					}
+					else{
+						base = sc.nextInt();
+						sc.nextLine();
+						obj.compareHexStringss(hex1, hex2);
+					}
 					break;
 				case 6:
 					System.out.print("Enter the hexadecimal String = ");
 					hex1 = sc.nextLine();
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
-					sc.nextLine();
-					int value = obj.hexToDec(hex1, base);
-					System.out.println("Decimal representation = "+value);
+					if(base!=16){
+						System.out.println("Only base 16 is applicable");
+						break;
+					}
+					else{
+						sc.nextLine();
+						int value = obj.hexToDec(hex1, base);
+						System.out.println("Decimal representation = "+value);
+					}
 					break;
 				case 7:
 					System.out.print("Enter the decimal number = ");
@@ -95,20 +131,24 @@ public class Hex {
 					sc.nextLine();
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
-					sc.nextLine();
-					String hexValue = obj.decTohex(dec1, base);
-					System.out.println("Hexadeciaml value = "+hexValue);
+					if(base!=16){
+						System.out.println("Only base 16 is applicable");
+						break;
+					}
+					else{
+						sc.nextLine();
+						String hexValue = obj.decTohex(dec1, base);
+						System.out.println("Hexadeciaml value = "+hexValue);
+					}
 					break;
 				case 8:
 					exit = true;
-					System.out.println("------------------------");
-					System.out.println("Successfully exited");
-					System.out.println("------------------------");
+					HexFunctions ob=new HexFunctions();
+					ob.showMessage("Succesfully exited");
+					break;
 				default:
-					System.out.println("------------------------");
-					System.out.println("Invalid input");
-					System.out.println("------------------------");
-
+					HexFunctions obj1=new HexFunctions();
+					obj1.showMessage("Succesfully exited");
 				}
 			} while (!exit);
 		} catch (InputMismatchException e) {
