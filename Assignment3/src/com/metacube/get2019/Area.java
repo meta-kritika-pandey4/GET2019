@@ -16,7 +16,6 @@ public class Area{
 	 * @return area
 	 */
 	public double triangleArea(double height,double width){
-		
 		area=(height*width)/2;
 		return area;
 	}
@@ -27,7 +26,6 @@ public class Area{
 	 * @return area
 	 */
 	public double squareArea(double width){
-		
 		area=width*width;
 		return area;
 	}
@@ -39,7 +37,6 @@ public class Area{
 	 * @return area
 	 */
 	public double rectangleArea(double height,double width){
-		
 		area=height*width;
 		return area;
 	}
@@ -50,7 +47,6 @@ public class Area{
 	 * @return area
 	 */
 	public double circleArea(double radius){
-		
 		area=3.14*radius*radius;
 		return area;
 	}

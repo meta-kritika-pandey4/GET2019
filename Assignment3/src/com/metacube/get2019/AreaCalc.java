@@ -9,7 +9,6 @@ import java.util.*;
  */
 class AreaCalc{
 	public static void main(String args[]){
-		
 		Scanner sc=new Scanner(System.in);
 		Area a=new Area();
 		boolean isExit = false;

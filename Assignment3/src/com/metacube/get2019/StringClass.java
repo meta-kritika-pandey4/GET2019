@@ -11,10 +11,11 @@ import java.util.Scanner;
 public class StringClass {
 
 	public static void main(String args[]) {
-		
 		Scanner sc = new Scanner(System.in);
 		String str;
+		Utility u=new Utility();
 		boolean flag = true;
+		boolean con;
 		try {
 			do {
 				String result;
@@ -32,32 +33,47 @@ public class StringClass {
 				case 1:
 					System.out.print("Enter a string = ");
 					str = sc.nextLine();
-					result = obj.reverse(str);
-					System.out.println("Reverse of string = " + result);
-					System.out.println("-----------------------------");
+					con=u.isValidString(str);
+					if(con){
+						result = obj.reverse(str);
+						System.out.println("Reverse of string = " + result);
+						System.out.println("-----------------------------");
+					}
 					break;
 				case 2:
 					System.out.print("Enter a string = ");
 					str = sc.nextLine();
-					result = obj.reverseCase(str);
-					System.out.println("Reversed case string = " + result);
-					System.out.println("-----------------------------");
+					con=u.isValidString(str);
+					if(con){
+						result = obj.reverseCase(str);
+						System.out.println("Reversed case string = " + result);
+						System.out.println("-----------------------------");
+					}
 					break;
 				case 3:
 					System.out.print("Enter a string = ");
 					str = sc.nextLine();
-					System.out.print("Enter one more string to compare = ");
-					String str2 = sc.nextLine();
-					int result1 = obj.compare2String(str, str2);
-					System.out.println("Result of comparison of 2 string is = "+ result1);
-					System.out.println("-----------------------------");
+					con=u.isValidString(str);
+					if(con){
+						System.out.print("Enter one more string to compare = ");
+						String str2 = sc.nextLine();
+						con=u.isValidString(str2);
+						if(con){
+							int result1 = obj.compare2String(str, str2);
+							System.out.println("Result of comparison of 2 string is = "+ result1);
+							System.out.println("-----------------------------");
+						}
+					}
 					break;
 				case 4:
 					System.out.print("Enter a string = ");
 					str = sc.nextLine();
-					result = obj.largestWordOfString(str);
-					System.out.println("Largest word of string = " + result);
-					System.out.println("-----------------------------");
+					con=u.isValidString(str);
+					if(con){
+						result = obj.largestWordOfString(str);
+						System.out.println("Largest word of string = " + result);
+						System.out.println("-----------------------------");
+					}
 					break;
 				case 5:
 					flag = false;

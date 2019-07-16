@@ -1,6 +1,11 @@
 package com.metacube.get2019;
 
-
+/**
+ * The class has methods to
+ * perform operations on Strings
+ * @author Kritika
+ *
+ */
 public class StringOperations {
 
 	/**
@@ -23,7 +28,6 @@ public class StringOperations {
 	 * @return 1 if strings are equal and 0 if not equal.
 	 */
 	public int compare2String(String str1, String str2) {
-		
 		int len1 = str1.length();
 		int len2 = str2.length();
 		if(len1 != len2) {
@@ -48,7 +52,6 @@ public class StringOperations {
 	 * @return reversed case String.
 	 */
 	public String reverseCase(String str) {
-		
 		String reverseCaseString = "";
 		for (int i=0; i<(str.length()); i++) {
 			char ch = str.charAt(i);
@@ -69,7 +72,6 @@ public class StringOperations {
 	 * @return largest word of string
 	 */
 	public String largestWordOfString(String str) {
-		
 		String largestWord;
 		String[] words = str.split(" ");
 		int length = words.length;
