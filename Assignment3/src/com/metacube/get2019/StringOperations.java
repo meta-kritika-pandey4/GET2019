@@ -40,10 +40,12 @@ public class StringOperations {
 				break;
 			}
 		}
-		if (flag)
+		if (flag){
 			return 1;
-		else
+		}
+		else{
 			return 0;
+		}
 	}
 	
 	/**
