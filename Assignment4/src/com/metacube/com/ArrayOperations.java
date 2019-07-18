@@ -12,7 +12,7 @@ public class ArrayOperations {
 	/**
 	 * It gives the maximum mirror size
 	 * forming up in the array
-	 * @param n
+	 * @param n input array
 	 * @return maxCount
 	 */
 	public int maxMirror(int[] n) {
@@ -38,7 +38,7 @@ public class ArrayOperations {
 	/**
 	 * This method returns the no
 	 * of clumps formed in the array
-	 * @param n
+	 * @param n input array
 	 * @return count
 	 */
 	public int countClumps(int[] n) {
@@ -64,10 +64,10 @@ public class ArrayOperations {
 	 * This method sets Y after X and
 	 * places the element after X at
 	 * the earlier position of the Y
-	 * @param n
-	 * @param X
+	 * @param n input array
+	 * @param X 
 	 * @param Y
-	 * @return n
+	 * @return n operated array
 	 */
 	public int[] fixXY(int[] n,int X,int Y) {
 		if (n.length == 0) {
@@ -110,8 +110,8 @@ public class ArrayOperations {
 	 * This method gives the index of 
 	 * the array where the sum of the
 	 * elements from both sides is equal
-	 * @param n
-	 * @return
+	 * @param n input array
+	 * @return index of the splitArray
 	 */
 	public int splitArray(int[] n) {
 		if(n.length==0){

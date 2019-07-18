@@ -40,7 +40,8 @@ public class CountClumpsTest {
 		return Arrays.asList(new Object[][] {
 				{ 2, new int[] { 1, 2, 2, 3, 4, 4 } },
 				{ 2, new int[] { 1, 1, 2, 1, 1 } },
-				{ 1, new int[] { 1, 1, 1, 1 } } });
+				{ 1, new int[] { 1, 1, 1, 1 } },
+				{ 0, new int[] { 1, 2, 3, 4,5 } } });
 	}
 
 	@Test
