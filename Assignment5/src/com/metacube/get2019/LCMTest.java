@@ -12,7 +12,7 @@ import org.junit.runners.*;
 
 /**
  * It is to run the test cases
- * for splitArray() of ArrayOperations
+ * for linearSearch() of Search
  * class
  * @author Kritika
  *

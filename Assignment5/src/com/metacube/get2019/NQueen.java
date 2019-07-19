@@ -4,7 +4,7 @@ package com.metacube.get2019;
  * Computes Solution of N Queen's Problem for a given NxN chess board.
  * Input is the  row and dimension of chess board.
  * Output is a binary matrix with 1 as Queen and everything else as 0.
- * @author Khushi
+ * @author Kritika
  */
 public class NQueen {
 
