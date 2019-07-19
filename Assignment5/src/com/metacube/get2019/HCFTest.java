@@ -42,7 +42,8 @@ public class HCFTest{
 		return Arrays.asList(new Object[][] {
 				{ 12, 24, 36 },
 				{ 0, 0, 76 },
-				{ 1, 5, 7 } });
+				{ 1, 5, 7 },
+				{ 3, -3, -6 }});
 	}
 	
 	@Test

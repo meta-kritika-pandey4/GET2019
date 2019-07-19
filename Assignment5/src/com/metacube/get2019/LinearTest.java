@@ -23,7 +23,7 @@ public class LinearTest{
 	private int expected;
 	private int[] actual;
 	private int ele;
-	private int size;
+	private int index;
 	private Search linear;
 	
 	@Before
@@ -31,11 +31,11 @@ public class LinearTest{
 		linear=new Search();
 	}
 	
-	public LinearTest( int expected, int[] actual, int ele, int size) {
+	public LinearTest( int expected, int[] actual, int ele, int index) {
 		this.expected = expected;
 		this.actual = actual;
 		this.ele = ele;
-		this.size = size;
+		this.index = index;
 	}
 	
 	@SuppressWarnings("rawtypes")
@@ -44,11 +44,12 @@ public class LinearTest{
 		return Arrays.asList(new Object[][] {
 				{4, new int[] { 1, 2, 3, 4, 5, 6}, 5, 6 },
 				{-1, new int[] { 7, 11, 8, 23}, 56, 4 },
-				{ 0, new int[] { 10, 20, 30, 40}, 10, 4 } });
+				{ 0, new int[] { 10, 20, 30, 40}, 10, 4 },
+				{ -1, new int[] {}, 6, 0 }});
 	}
 	
 	@Test
 	public void testLinear() {
-		assertEquals(expected,linear.linearSearch ( actual, ele, size ) );
+		assertEquals(expected,linear.linearSearch ( actual, ele, index ) );
 	}
 }

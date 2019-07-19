@@ -42,7 +42,8 @@ public class LCMTest{
 		return Arrays.asList(new Object[][] {
 				{ 36, 12, 36 },
 				{ 0, 0, 76 },
-				{ 35, 5, 7 } });
+				{ 35, 5, 7 }, 
+				{ 35, -5, 7 }});
 	}
 	
 	@Test

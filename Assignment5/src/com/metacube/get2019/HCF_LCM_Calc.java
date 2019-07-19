@@ -17,7 +17,7 @@ public class HCF_LCM_Calc {
 	 * @return hcf of the two numbers
 	 */
 	public int calHCF ( int x, int y ) {
-		if( x < y ){
+		if( Math.abs(x) < Math.abs(y) ){
 			int swap = x;
 			x = y;
 			y = swap;
@@ -27,7 +27,7 @@ public class HCF_LCM_Calc {
 		} 
 		int rem = x % y;
 		if ( rem == 0 ) {
-			return y;
+			return Math.abs(y);
 		} else {
 			return calHCF( y, rem );
 		}
