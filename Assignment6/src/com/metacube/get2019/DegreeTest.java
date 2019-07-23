@@ -19,7 +19,7 @@ public class DegreeTest{
 		assertEquals( 2, p.degree());
 	}
 	
-	@Test
+	@Test (expected = AssertionError.class)
 	public void testDegree2() {
 		Poly p = new Poly(new int[] {}, new int[] {},  0  );
 		assertEquals( -1, p.degree());

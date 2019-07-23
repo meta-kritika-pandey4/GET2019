@@ -19,7 +19,7 @@ public class EvaluateTest{
 		assertEquals( 14, p.evaluate(2), 0.0f);
 	}
 	
-	@Test
+	@Test (expected = AssertionError.class)
 	public void testEvaluate2() {
 		Poly p = new Poly(new int[] {}, new int[] {},  0  );
 		assertEquals( -1, p.evaluate(2), 0.0f);

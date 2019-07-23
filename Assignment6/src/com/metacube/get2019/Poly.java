@@ -41,8 +41,9 @@ public final class Poly {
 	 */
 	public float evaluate(float x) {
 		float evaluate = 0;
-		if (length == 0) 
-			return -1;
+		if (length == 0){ 
+			throw new AssertionError("No polynomial");
+		}
 		for (int i = 0; i < coefficient.length; i++) {
 			evaluate += coefficient[i] * Math.pow(x, exponent[i]);
 		}
@@ -55,7 +56,7 @@ public final class Poly {
 	 */
 	public int degree() {
 		if (length == 0){
-			return -1;
+			throw new AssertionError("No polynomial");
 		}
 		int max = 0;
 		for (int i = 0; i < exponent.length; i++) {
@@ -70,7 +71,7 @@ public final class Poly {
 	 * It is a method used to return addition of 2 polynomial.
 	 * @param p1 1st polynomial
 	 * @param p2 2nd Polynomial
-	 * @return sum of Polynomials.
+	 * @return p3 sum of Polynomials.
 	 */
 	public Poly addPoly(Poly p1, Poly p2) {
 		Poly p3 = new Poly();
