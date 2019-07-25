@@ -6,8 +6,8 @@ package com.metacube.get2019;
  *
  */
 public abstract class Animal {
-	String name;
-	int id;
+	public String name;
+	public int id;
 
 	public abstract String getSound();
 }

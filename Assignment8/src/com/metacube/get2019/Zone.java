@@ -7,9 +7,9 @@ package com.metacube.get2019;
  */
 public class Zone {
 	
-	String category;
-	int cageCapacity;
-	int zoneCount;
+	public String category;
+	public int cageCapacity;
+	public int zoneCount;
 	
 	/**
 	 * It is a constructor used to initialize zone attributes.

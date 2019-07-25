@@ -6,8 +6,8 @@ package com.metacube.get2019;
  *
  */
 public class Cage {
-	String cageType;
-	int animalCapacity;
+	public String cageType;
+	public int animalCapacity;
 	
 	/**
 	 *It is a constructor used to initialize cage class attributes.

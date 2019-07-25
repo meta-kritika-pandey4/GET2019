@@ -12,10 +12,10 @@ import java.util.Scanner;
  */
 public class Zoo {
 	
-	static int id = 0;
-	static ArrayList<Zone> zoneList = new ArrayList<Zone>(); 
-	static ArrayList<Cage> cageList = new ArrayList<Cage>(); 
-	static ArrayList<Animal> animalList = new ArrayList<Animal>();
+	private static int id = 0;
+	private static ArrayList<Zone> zoneList = new ArrayList<Zone>(); 
+	private static ArrayList<Cage> cageList = new ArrayList<Cage>(); 
+	private static ArrayList<Animal> animalList = new ArrayList<Animal>();
 	
 	
 	/**
@@ -40,7 +40,6 @@ public class Zoo {
 	    		sc.nextLine();
 				switch(choice){
 				    case 1:
-				    {	
 				    	if(zoneList.size() < 3) {
 							System.out.println("-----------------------");
 				    		System.out.print("Enter Catergory of Zone among Reptile, Mammal and Bird : ");
@@ -72,10 +71,8 @@ public class Zoo {
 				    		System.out.println("Zone Full");
 				    	}
 				    	break;
-				    }
 				    
 				    case 2:
-				    {
 				    	if(zoneList.size() == 0) {
 							System.out.println("-----------------------");
 				    		System.out.println("Please Create Zone!!!!");
@@ -109,8 +106,7 @@ public class Zoo {
 					    		}
 				    	}
 				    	break;
-				    }
-				    
+				    	
 				    case 3:
 				    	if(zoneList.size() == 0){
 							System.out.println("-----------------------");
@@ -149,6 +145,7 @@ public class Zoo {
 							}
 				    	}
 				    	break;
+				    	
 				    case 4:
 				    	sc.nextLine();
 						System.out.println("-----------------------");
@@ -184,24 +181,24 @@ public class Zoo {
 							}
 						}
 				    	break;
+				    	
 				    case 6:
 				    	isExit = true;
 						System.out.println("-----------------------");
 				    	System.out.println("Thanks For Comming");
 						System.out.println("-----------------------");
 						break;
+						
 					default:
 						System.out.println("Invalid input!!!");
 				    	
 				}
 			}while(!isExit);
-		}catch (InputMismatchException e) {
+		} catch (InputMismatchException e) {
 			System.out.println("Input mismatch");
-		}
-		catch(NullPointerException e) {
+		} catch(NullPointerException e) {
 			System.out.println("Null value inserted.");
-		}
-		finally{
+		} finally{
 			sc.close();
 		}
 	}

@@ -7,12 +7,20 @@ package com.metacube.get2019;
  */
 public abstract class Mammal extends Animal {
 
-	String speciality;
+	public String speciality;
 	
 	/**
 	 * It is a Mammal class constructor.
 	 */
 	public Mammal() {
-		this.speciality = "Walk";
 	}
+	
+	/**
+	 * This method is to store speciality of the animal type
+	 * @param speciality
+	 */
+	public void getSpeciality(String speciality) {
+		this.speciality = speciality;
+	}
+
 }
