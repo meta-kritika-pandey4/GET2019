@@ -19,7 +19,7 @@ public class ShapeFactory {
 	 * @param list1 list of parameters
 	 * @return shape type object
 	 */
-	public Shape createShape(String shapeName, Point p, ArrayList<Integer> list1) {
+	public Shape createShape(String shapeName, Point p, List<Integer> list1) {
 		
 		Enum ShapeEnum = Enum.valueOf(ShapeType.class, shapeName.toUpperCase() );
 		if (ShapeEnum == null) {
