@@ -42,46 +42,39 @@ public class RotateLinkedList {
 	 * @param numberOfRotation number of rotation of linked list.
 	 */
 	public void rotateLinkList(int left, int right, int numberOfRotation) {
-		Node temp = new Node();
-		Node temp1 = new Node();
-		Node temp2 = new Node();
-		Node prev = new Node();
-		int count = 0;
-		if (head == null) {
-			System.out.println("Empty list");
-			return;
+		if ( left < 0 || right > noOfNodes() || left <= right ) {
+			System.out.println("Invalid window size is given for the sublist");
 		} else {
-			while (count != numberOfRotation) {
-				temp = head;
-				temp1 = head;
-				prev = head;
-				int count1 = 1;
-				int count2 = 1;
-				while (count1 != left) {
-					if (temp == null) {
-						System.out.println("No further items in the list!!!");
-						return;
+			Node temp = new Node();
+			Node temp1 = new Node();
+			Node temp2 = new Node();
+			Node prev = new Node();
+			int count = 0;
+			if (head == null) {
+				System.out.println("Empty list");
+				return;
+			} else {
+				while (count != numberOfRotation) {
+					temp = head;	// used to iterate linked list upto left position
+					temp1 = head;	// used to iterate linked list upto right position
+					prev = head;
+					for( int i = 1, j = 1; i <= left || j <= right; i++, j++) {
+						if( i <= left ){
+							prev = temp;
+							temp = temp.next;
+						}
+						if( j <= right ) {
+							temp1 = temp1.next;
+						}
 					}
-					prev = temp;
-					temp = temp.next;
-					count1++;
+					temp2 = temp.next;
+					temp.next = temp1.next;
+					temp1.next = temp;
+					prev.next = temp2;
+					count++;
 				}
-				while (count2 != right) {
-					if (temp1 == null) {
-						System.out.println("No further items in the list!!!");
-						return;
-					}
-					temp1 = temp1.next;
-					count2++;
-				}
-				temp2 = temp.next;
-				temp.next = temp1.next;
-				temp1.next = temp;
-				prev.next = temp2;
-				count ++;
 			}
 		}
-	
 	}
 	
 	/**
@@ -111,6 +104,17 @@ public class RotateLinkedList {
 			System.out.print(temp.data + "->");
 			temp = temp.next;
 		}
+	}
+	
+	private int noOfNodes() {
+		Node p = new Node();
+		p = head;
+		int count = 0;
+		while ( p.next != null) {
+			p = p.next;
+			count++;
+		}
+		return count;
 	}
  
 }
