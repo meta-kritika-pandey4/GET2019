@@ -14,8 +14,8 @@ public class StackUsingLinkList implements Stack {
 	 *
 	 */
 	class Node {
-		String data;
-		Node next = null;
+		public String data;
+		public Node next = null;
 		
 		/**
 		 * It is a default constructor.

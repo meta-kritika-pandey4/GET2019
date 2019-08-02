@@ -33,7 +33,7 @@ public class EvaluateInfix {
 				stackObj.push(str1);
 			}
 			else if (")".equals(str1)) {
-				while (!stackObj.isEmpty() && ! "(".equals(stackObj.peek())) {
+				while (!stackObj.isEmpty() && !"(".equals(stackObj.peek())) {
 					postfixStr.append(stackObj.pop());
 					postfixStr.append(" ");
 				}
