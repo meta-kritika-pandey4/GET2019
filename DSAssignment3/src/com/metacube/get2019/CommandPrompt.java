@@ -53,8 +53,8 @@ public class CommandPrompt {
 					System.out.println("Command doesn't exist!");
 				}
 			} while (!isExit);
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch (InputMismatchException e) {
+			System.out.println(e.getStackTrace());
 		} finally {
 			sc.close();
 		}
