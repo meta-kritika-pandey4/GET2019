@@ -127,20 +127,20 @@ public class DictImp implements Dictionary {
 				} else {
 					treeNode.parent.right = null;
 				}
-			} else if (treeNode.left == null && treeNode.right != null) {
+			} else if (treeNode.left == null && treeNode.right != null  && treeNode.parent != null) {
 				if (treeNode.parent.left == treeNode) {
 					treeNode.parent.left = treeNode.right;
 				} else {
 					treeNode.parent.right = treeNode.right;
 				}
-			} else if (treeNode.right == null && treeNode.left != null) {
+			} else if (treeNode.right == null && treeNode.left != null  && treeNode.parent != null) {
 				if (treeNode.parent.right == treeNode) {
 					treeNode.parent.right = treeNode.left;
 				} else {
 					treeNode.parent.left = treeNode.left;
 				}
 			} else {
-				TreeNode inorderSucc = findMin(treeNode.left);
+				TreeNode inorderSucc = findMin(treeNode.right);
 				treeNode.key = inorderSucc.key;
 				treeNode.value = inorderSucc.value;
 				return deleteRec(inorderSucc.key, inorderSucc);
