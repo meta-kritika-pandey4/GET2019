@@ -167,7 +167,7 @@ public class DictImp implements Dictionary {
 	 * It is a method to find inorder successor sequence.
 	 * @param root root of tree
 	 * @param list list of nodes 
-	 * @return list
+	 * @return list inordered list
 	 */
 	private List<Value> inorderRec(TreeNode root, List<Value> list) {
 		if (root != null) {
