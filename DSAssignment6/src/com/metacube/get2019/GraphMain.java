@@ -17,7 +17,15 @@ public class GraphMain {
 		try {
 			System.out.println("Enter the no of vertices :");
 			int noOfVertices = sc.nextInt();
+			if ( noOfVertices <= 0 ){
+				System.out.println("Not a valid option");
+				main(args);
+			}
 			Graph graph = new Graph(noOfVertices);
+			LinkedList<Edge> adjacentVertices;
+			Edge newEdge;
+			int weight;
+			int destinationVertex;
 			do {
 				System.out.println("1.Insert adjacent vertices for a source");
 				System.out.println("2.Show the edge list of the graph");
@@ -28,54 +36,35 @@ public class GraphMain {
 				System.out.println("7.Exit");
 				int choice = sc.nextInt();
 				switch(choice){
-				case 1:
-						LinkedList<Edge> adjacentVertices;
-						adjacentVertices = new LinkedList<Edge>() { {
-							add(new Edge(1,2,2));
-							add(new Edge(1,3,5));
-						}};
-						graph.addEdge(1, adjacentVertices );
-						adjacentVertices = new LinkedList<Edge>() { {
-							add(new Edge(2,1,2));
-							add(new Edge(2,4,4));
-							add(new Edge(2,3,2));
+				case Constant.ONE:
+						for(int i = 1; i <= noOfVertices; i++){
+							System.out.println("Enter the no of neighbours of "+ i + " vertex :");
+							int noOfNeighbours = sc.nextInt();
+							adjacentVertices = new LinkedList<Edge>();
+							for ( int j = 0; j < noOfNeighbours; j++){
+								System.out.println("Vertex name :");
+								destinationVertex = sc.nextInt();
+								System.out.println("Weight of the edge :");
+								weight = sc.nextInt();
+								newEdge = new Edge(i,destinationVertex,weight);
+								adjacentVertices.add(newEdge);
 							}
-						};
-						graph.addEdge( 2, adjacentVertices );
-						adjacentVertices = new LinkedList<Edge>() { {
-							add(new Edge(3,1,5));
-							add(new Edge(3,4,5));
-							add(new Edge(3,2,2));
-							add(new Edge(3,5,5));}
-						};
-						graph.addEdge(3, adjacentVertices );
-						adjacentVertices = new LinkedList<Edge>() { {
-							add(new Edge(4,5,2));
-							add(new Edge(4,3,5));
-							add(new Edge(4,2,4));
-							}
-						};
-						graph.addEdge(4, adjacentVertices );
-						adjacentVertices = new LinkedList<Edge>() { {
-							add(new Edge(5,3,5));
-							add(new Edge(5,4,2));}
-						};
-						graph.addEdge(5, adjacentVertices );
-					break;
-				case 2:
+							graph.addEdge(i, adjacentVertices);
+						}
+						break;
+				case Constant.TWO:
 					System.out.println("The graph is as follows");
 					graph.showGraph();
 					break;
-				case 3:
+				case Constant.THREE:
 					boolean result=graph.isConnected();
-					System.out.println(result);
 					if( result ){
 						System.out.println("The graph is connected.");
 					} else {
 						System.out.println("The graph is not connected");
 					}
 					break;
-				case 4:
+				case Constant.FOUR:
 					System.out.println("Enter the vertex for which you want information :");
 					int source = sc.nextInt();
 					ArrayList<Integer> reachableNodes = graph.isReachable(source);
@@ -84,20 +73,20 @@ public class GraphMain {
 						System.out.print(i+" ");
 					}
 					break;
-				case 5:
+				case Constant.FIVE:
 					System.out.println("Minimum spanning tree is as follows :");
 					Graph mst=graph.mst(1);
 					mst.showGraph();
 					break;
-				case 6:
+				case Constant.SIX:
 					System.out.println("Enter the sourceVertex :");
 					int sourceVertex = sc.nextInt();
 					System.out.println("Enter the destinationVertex :");
-					int destinationVertex = sc.nextInt();
-					System.out.println("The shortest distance from "+sourceVertex+" to "+destinationVertex+" is :"+ graph.shortestPath(sourceVertex, destinationVertex));
+					int destination = sc.nextInt();
+					System.out.println("The shortest distance from "+sourceVertex+" to "+destination+" is :"+ graph.shortestPath(sourceVertex, destination));
 					System.out.printf("%n");
 					break;
-				case 7:
+				case Constant.SEVEN:
 					isExit = true;
 					System.out.println("Exit!!!");
 					break;

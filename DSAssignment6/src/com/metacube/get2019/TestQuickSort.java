@@ -4,7 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
+/**
+ * It is a test case for quickSort() of QuickSortLinkedList
+ * @author Kritika
+ *
+ */
 public class TestQuickSort {
 	
 	@Test
@@ -29,9 +33,9 @@ public class TestQuickSort {
 		Node currentNodeActual=linkedlist.getHead();
 		while(currentNodeExpected!=null)
 		{
-			assertEquals(currentNodeExpected.data.empName,currentNodeActual.data.empName);
-			currentNodeExpected=currentNodeExpected.next;
-			currentNodeActual=currentNodeActual.next;
+			assertEquals(currentNodeExpected.getData().getEmpName(),currentNodeActual.getData().getEmpName());
+			currentNodeExpected=currentNodeExpected.getNext();
+			currentNodeActual=currentNodeActual.getNext();
 		}
 	}
 	@Test(expected=AssertionError.class)

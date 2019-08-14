@@ -6,9 +6,9 @@ package com.metacube.get2019;
  *
  */
 public class Edge {
-	public int sourceVertex;
-	public int destinationVertex;
-	public int weight;
+	private int sourceVertex;
+	private int destinationVertex;
+	private int weight;
 	
 	/**
 	 * It is a default constructor
@@ -23,7 +23,40 @@ public class Edge {
 	 */
 	public Edge(int souceVertex,int destinationVertex,int weight) {
 		 this.sourceVertex=souceVertex;
-		 this.destinationVertex=destinationVertex;
-		 this.weight=weight;
+		 this.setDestinationVertex(destinationVertex);
+		 this.setWeight(weight);
 	 }
+
+
+	/**
+	 * getter method for destinationVertex
+	 * @return destinationVertex
+	 */
+	public int getDestinationVertex() {
+		return destinationVertex;
+	}
+
+	/**
+	 * setter method for destinationVertex
+	 *
+	 */
+	public void setDestinationVertex(int destinationVertex) {
+		this.destinationVertex = destinationVertex;
+	}
+
+	/**
+	 * getter method for weight
+	 * @return weight
+	 */
+	public int getWeight() {
+		return weight;
+	}
+
+	/**
+	 * setter method for weight
+	 * 
+	 */
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
 }

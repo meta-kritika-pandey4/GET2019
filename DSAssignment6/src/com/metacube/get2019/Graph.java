@@ -42,7 +42,7 @@ public class Graph implements GraphInterface {
 		for( int i = 1; i <= noOfVertices; i++ ) {
 			LinkedList< Edge> adjacentVertices = adjacencyList[i];
 			for(int j=0; j < adjacentVertices.size(); j++) {
-				System.out.print(i+"->"+adjacentVertices.get(j).destinationVertex+"("+adjacentVertices.get(j).weight+")");
+				System.out.print(i+"->"+adjacentVertices.get(j).getDestinationVertex()+"("+adjacentVertices.get(j).getWeight()+")");
 			} 
 			System.out.printf("%n");
 		}
@@ -60,10 +60,10 @@ public class Graph implements GraphInterface {
 		stack.push(sourceVertex);
 		while(!stack.isEmpty()) {
 			for(int i = 0; i < adjacencyList[sourceVertex].size(); i++) {
-				if(!visited[adjacencyList[sourceVertex].get(i).destinationVertex]) {
-					visited[adjacencyList[sourceVertex].get(i).destinationVertex] = true;
-					stack.push(adjacencyList[sourceVertex].get(i).destinationVertex);
-					sourceVertex = adjacencyList[sourceVertex].get(i).destinationVertex;
+				if(!visited[adjacencyList[sourceVertex].get(i).getDestinationVertex()]) {
+					visited[adjacencyList[sourceVertex].get(i).getDestinationVertex()] = true;
+					stack.push(adjacencyList[sourceVertex].get(i).getDestinationVertex());
+					sourceVertex = adjacencyList[sourceVertex].get(i).getDestinationVertex();
 					i = 0;
 				}
 			}
@@ -134,9 +134,9 @@ public class Graph implements GraphInterface {
 		while(shortestPathTree.size() != noOfVertices) {
 			LinkedList<Edge> srcAdjacentList = adjacencyList[sourceVertex];
 			for( int i =0; i <  srcAdjacentList.size(); i++ ) {
-				if(!shortestPathTree.contains(srcAdjacentList.get(i).destinationVertex)) {
-					if(	distance[srcAdjacentList.get(i).destinationVertex] >(srcAdjacentList.get(i).weight + distance[sourceVertex])) {
-						distance[srcAdjacentList.get(i).destinationVertex] = (srcAdjacentList.get(i).weight + distance[sourceVertex]);
+				if(!shortestPathTree.contains(srcAdjacentList.get(i).getDestinationVertex())) {
+					if(	distance[srcAdjacentList.get(i).getDestinationVertex()] >(srcAdjacentList.get(i).getWeight() + distance[sourceVertex])) {
+						distance[srcAdjacentList.get(i).getDestinationVertex()] = (srcAdjacentList.get(i).getWeight() + distance[sourceVertex]);
 					}
 				}
 			}
@@ -178,9 +178,9 @@ public class Graph implements GraphInterface {
 		while(shortestPathTree.size() != noOfVertices) {
 			LinkedList<Edge> srcAdjacentList = adjacencyList[sourceVertex];
 			for( int i =0; i <  srcAdjacentList.size(); i++ ){
-				if(!shortestPathTree.contains(srcAdjacentList.get(i).destinationVertex)) {
-					if(	distance[srcAdjacentList.get(i).destinationVertex] >(srcAdjacentList.get(i).weight )) {
-						distance[srcAdjacentList.get(i).destinationVertex] = (srcAdjacentList.get(i).weight );
+				if(!shortestPathTree.contains(srcAdjacentList.get(i).getDestinationVertex())) {
+					if(	distance[srcAdjacentList.get(i).getDestinationVertex()] >(srcAdjacentList.get(i).getWeight() )) {
+						distance[srcAdjacentList.get(i).getDestinationVertex()] = (srcAdjacentList.get(i).getWeight() );
 					}
 				}
 			}
@@ -188,7 +188,7 @@ public class Graph implements GraphInterface {
 			for( int i = 1; i <= noOfVertices; i++ ) {
 				if(!shortestPathTree.contains(i)) {
 					for(int j=0;j<srcAdjacentList.size();j++) {
-						if( distance[i] < min && srcAdjacentList.get(j).destinationVertex == i ){
+						if( distance[i] < min && srcAdjacentList.get(j).getDestinationVertex() == i ){
 							min = distance[i];
 							destination = i;
 							break;
@@ -197,7 +197,7 @@ public class Graph implements GraphInterface {
 				}
 			}
 			for(int i=0;i<srcAdjacentList.size();i++) {
-				if(srcAdjacentList.get(i).destinationVertex==destination){
+				if(srcAdjacentList.get(i).getDestinationVertex()==destination){
 					smallestEdge=new Edge(sourceVertex,destination,min);
 					mst.adjacencyList[sourceVertex].add(smallestEdge);
 					shortestPathTree.add(destination);

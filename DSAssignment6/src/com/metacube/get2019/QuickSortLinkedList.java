@@ -25,7 +25,7 @@ public class QuickSortLinkedList {
 		if(getHead()==null) {
 			setHead(setRear(newNode));
 		} else {
-			getRear().next=newNode;
+			getRear().setNext(newNode);
 			setRear(newNode);
 		}
 	}
@@ -43,34 +43,34 @@ public class QuickSortLinkedList {
 			currentNode=null;
 		} else {
 			currentNode=this.getHead();
-			while(currentNode.next!=front)
+			while(currentNode.getNext()!=front)
 			{
-				currentNode=currentNode.next;
+				currentNode=currentNode.getNext();
 			}
 		}
 		Node i=currentNode;
-		Employee pivot=last.data;
+		Employee pivot=last.getData();
 		Node j=front;
 		while(j!=last) {
-			if(j.data.salary>pivot.salary||((j.data.salary==pivot.salary)&&(j.data.age<pivot.age))) {
+			if(j.getData().getSalary()>pivot.getSalary()||((j.getData().getSalary()==pivot.getSalary())&&(j.getData().getAge()<pivot.getAge()))) {
 				if(i==null)
 					i=front;
 				else
-					i=i.next;
-				temp =i.data;
-				i.data=j.data;
-				j.data=temp;
+					i=i.getNext();
+				temp =i.getData();
+				i.setData(j.getData());
+				j.setData(temp);
 			}
-			j=j.next;
+			j=j.getNext();
 		}
 		if(i==null) {
 			i=front;
 		} else {
-			i=i.next;
+			i=i.getNext();
 		}
-		temp=i.data;
-		i.data=last.data;
-		last.data=temp;
+		temp=i.getData();
+		i.setData(last.getData());
+		last.setData(temp);
 		return i;
 	}
 	
@@ -82,10 +82,10 @@ public class QuickSortLinkedList {
 	public void showLinkedList(Node front,Node last) {
 		Node currentNode=front;
 		while(currentNode!=last) {
-			System.out.print(currentNode.data.empName+"-->");
-			currentNode=currentNode.next;
+			System.out.print(currentNode.getData().getEmpName()+"-->");
+			currentNode=currentNode.getNext();
 		}
-		System.out.println(currentNode.data.empName);
+		System.out.println(currentNode.getData().getEmpName());
 	}
 	
 	/**
@@ -94,20 +94,20 @@ public class QuickSortLinkedList {
 	 * @param last is the last element of the list
 	 */
 	public void recursiveQuickSort(Node front,Node last) {
-		if(last==front.next) {
-			if((front.data.salary<last.data.salary)||((front.data.salary==last.data.salary)&&(front.data.age<last.data.age))) {
-				Employee temp=front.data;
-				front.data=last.data;
-				last.data=temp;
+		if(last==front.getNext()) {
+			if((front.getData().getSalary()<last.getData().getSalary())||((front.getData().getSalary()==last.getData().getSalary())&&(front.getData().getAge()<last.getData().getAge()))) {
+				Employee temp=front.getData();
+				front.setData(last.getData());
+				last.setData(temp);
 			}
 		} else if(front!=null && last!=front) { 
 			Node partition = partition(front,last); 
 			Node currentNode=front;
-			while(currentNode.next!=partition) {
-				currentNode=currentNode.next;
+			while(currentNode.getNext()!=partition) {
+				currentNode=currentNode.getNext();
 			}
 			recursiveQuickSort(front,currentNode); 
-			recursiveQuickSort(partition.next,last); 
+			recursiveQuickSort(partition.getNext(),last); 
 		} 
 	}
 	
