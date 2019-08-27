@@ -2,60 +2,70 @@
 <HTML>
     <HEAD>
         <TITLE>Metacube Parking System</TITLE>
+
+        <!-- The js files are attached-->
             <SCRIPT src = "javascript_file.js"></SCRIPT>
             <SCRIPT src = "validation_form.js"></SCRIPT>
     </HEAD>
 
     <BODY>
+
+        <!--Registration Form of the employees-->
+
         <div align=center id="Form1" value="E19/1226">
             <form>
                 <H1>Employee Registration Form</H1>
                 <table cellspacing=10>
                     <tr >          
-                        <td><label >Full Name :</label></td> 
+                        <td><label style=color:red>*</label><label >Full Name :</label></td> 
                         <td><input  type=text id = "full_name" required></td>
                     </tr>
+                    <tr id = "full_name_validation" style=color:red></tr>
                     <tr>
-                        <td><label>Gender : </label></td>
+                        <td><label style=color:red>*</label><label>Gender : </label></td>
                         <td>
                             <input type="radio" name="gender" value="Male">Male<br/>
                             <input type="radio" name="gender" value="Female">Female
                         </td>
                     </tr>
                     <tr>
-                        <td><label >Email id :</label></td> 
+                        <td><label style=color:red>*</label><label >Email id :</label></td> 
                         <td><input type="text" id = "email" required></td>
                     </tr>
+                    <tr id = "email_validation" style=color:red></tr>
                     <tr>
-                        <td><label>Password :</label></td> 
+                        <td><label style=color:red>*</label><label>Password :</label></td> 
                         <td><input type="password" id = "password" required></td>
                     </tr>
+                    <tr id = "password_validation" style=color:red></tr>
                     <tr>
-                        <td><label >Confirm Password :</label></td> 
+                        <td><label style=color:red>*</label><label >Confirm Password :</label></td> 
                         <td><input type="password" id = "confirm_password" required></td>
                     </tr>
+                    <tr id = "confirm_password_validation" style=color:red></tr>
                     <tr>
-                        <td><label >Contact Number :</label></td> 
+                        <td><label style=color:red>*</label><label >Contact Number :</label></td> 
                         <td><input  id = "contact" required></td>
                     </tr>
+                    <tr id = "contact_validation" style=color:red></tr>
                 </table>
                 <br/>
-                <input type="button" value="Register" onclick=collapseForm1()>
-                
-            </form>
-            
+                <input type="button" value="Register" onclick=collapseForm1()> 
+            </form> 
         </div>
+
+         <!--Registration Form of the vehicles-->
 
         <div align=center id="Form2" style="display:none">
             <form  >
                 <H1>Vehicle Registration Form</H1>
                 <table cellspacing=10>
                     <tr >          
-                        <td><label>Vehicle Name :</label></td> 
+                        <td><label style=color:red>*</label><label>Vehicle Name :</label></td> 
                         <td><input type=text id = "vehicle_name" required></td>
                     </tr>
                     <tr>
-                        <td><label>Vehicle Type : </label></td>
+                        <td><label style=color:red>*</label><label>Vehicle Type : </label></td>
                         <td>
                             <input type="radio" id="Cycle"name="vehicleType" value="Cycle">Cycle<br/>
                             <input type="radio" id="MotorCycle"name="vehicleType" value="MotorCycle">MotorCycle<br/>
@@ -63,12 +73,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Vehicle Number :</label></td> 
+                        <td><label style=color:red>*</label><label>Vehicle Number :</label></td> 
                         <td><input type="text" id = "vehicle_number" required></td>
                     </tr>
                     <tr>
                         <td><label>Employee id :</label></td> 
-                        <td><input type="text" id="Employee_id" readonly></td>
+                        <td><input type="text" id="Employee_id" readonly disabled></td>
                     </tr>
                     <tr>
                         <td><label>Identification :</label></td> 
@@ -79,6 +89,8 @@
                 <input type="button" value="Register" onclick=collapseForm2()>
             </form>    
         </div>
+
+        <!--Change currency selection code-->
 
         <div id="choose_currency" style="display:none" align="center">
             <br/>
@@ -94,6 +106,8 @@
                 </tr>
             </table>
         </div>     
+
+        <!--Cycle Pass Pricing Details-->
 
         <div id="CyclePass" align="center" style="display:none">
             <h3>Cycle Pass Prices</h3>
@@ -115,8 +129,10 @@
         <input type = "button" value = "Get Pass" onclick = getCyclePassPrice(getCurrency())>
         </div>
         
+          <!--Four Wheeler Pass Pricing Details-->
+
         <div id="FourWheelerPass" align="center" style="display:none">
-            <h3>FourWheeler Pass Prices</h3>
+            <h3>Four Wheeler Pass Prices</h3>
             <table border=1>
                 <tr>
                     <td><label>Daily :</label></td>
@@ -135,7 +151,9 @@
             <input type = "button" value = "Get Pass" onclick = getFourWheelerPassPrice(getCurrency())>
         </div>  
 
-        <div id="MotorCyclePass" align="center" style="display:none">
+          <!--Motorcycle Pass Pricing Details-->
+
+        <div id="MotorcyclePass" align="center" style="display:none">
             <h3>MotorCycle Pass Prices</h3>
             <table border=1>
                 <tr>
@@ -153,7 +171,7 @@
             </table>
             <br/>
             <br/>
-            <input type = "button" value = "GetPass" onclick = getMotorCyclePassPrice(getCurrency())>
+            <input type = "button" value = "Get Pass" onclick = getMotorCyclePassPrice(getCurrency())>
         </div>            
     </BODY>
 </HTML>
