@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>EADAssignment02</display-name>
+  <servlet>
+  <servlet-name>AddStudentServlet</servlet-name> 
+  <servlet-class>com.metacube.get2019.AddStudentServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>AddStudentServlet</servlet-name> 
+  <url-pattern>/addStudentDetails</url-pattern> 
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>SearchStudentServlet</servlet-name> 
+  <servlet-class>com.metacube.get2019.SearchStudentServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SearchStudentServlet</servlet-name> 
+  <url-pattern>/searchStudent</url-pattern> 
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>ShowStudentServlet</servlet-name> 
+  <servlet-class>com.metacube.get2019.ShowStudentServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ShowStudentServlet</servlet-name> 
+  <url-pattern>/showStudent</url-pattern> 
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>GetStoredStudentServlet</servlet-name> 
+  <servlet-class>com.metacube.get2019.GetStoredStudentServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>GetStoredStudentServlet</servlet-name> 
+  <url-pattern>/getStoredStudent</url-pattern> 
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>UpdateStudentServlet</servlet-name> 
+  <servlet-class>com.metacube.get2019.UpdateStudentServlet</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>UpdateStudentServlet</servlet-name> 
+  <url-pattern>/updateStudent</url-pattern> 
+  </servlet-mapping>
+  <welcome-file-list>
+  <welcome-file>index.html</welcome-file> 
+  </welcome-file-list>
+
+</web-app>

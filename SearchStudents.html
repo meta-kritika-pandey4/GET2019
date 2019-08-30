@@ -1,0 +1,27 @@
+<!-- Page to search students in the database -->
+
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Search Student Details</TITLE>
+    </HEAD>
+    <BODY>
+        <div align=center id="search_student_form">
+            <form action = "searchStudent" method = "get">
+                <H1>Search Student Details</H1>
+                <table cellspacing=10>
+                    <tr >          
+                        <td><label style=color:red>*</label><label >First Name :</label></td> 
+                        <td><input  type=text name = "first_name" required></td>
+                    </tr>
+                    <tr >          
+                        <td><label style=color:red>*</label><label >Last Name :</label></td> 
+                        <td><input  type=text name = "last_name" required></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </BODY>
+</HTML>
