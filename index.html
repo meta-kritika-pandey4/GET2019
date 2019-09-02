@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<HTML>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <HEAD>
+        <TITLE>Metacube Parking System</TITLE>
+
+        <!-- The js files are attached-->
+            <SCRIPT src = "javascript_file.js"></SCRIPT>
+            <SCRIPT src = "validation_form.js"></SCRIPT>
+    </HEAD>
+
+    <BODY>
+
+        <!--Registration Form of the employees-->
+
+        <div align=center id="Form1" value="E19/1226">
+            <form>
+                <H1>Employee Registration Form</H1>
+                <table cellspacing=10>
+                    <tr >          
+                        <td><label style=color:red>*</label><label >Full Name :</label></td> 
+                        <td><input  type=text id = "full_name" required></td>
+                    </tr>
+                    <tr>
+                    <td id = "full_name_validation" style=color:red colspan=2></td></tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Gender : </label></td>
+                        <td>
+                            <input type="radio" name="gender" value="Male" id = "male">Male<br/>
+                            <input type="radio" name="gender" value="Female" id = "female">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "gender_validation" style=color:red colspan=2></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label >Email id :</label></td> 
+                        <td><input type="text" id = "email" required></td>
+                    </tr>
+                    <tr>
+                        <td id = "email_validation" style=color:red colspan=2></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Password :</label></td> 
+                        <td><input type="password" id = "password" required></td>
+                    </tr>
+                    <tr>
+                    <td id = "password_validation" style=color:red colspan=2></td></tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label >Confirm Password :</label></td> 
+                        <td><input type="password" id = "confirm_password" required></td>
+                    </tr>
+                    <tr>
+                    <td id = "confirm_password_validation" style=color:red colspan=2></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label >Contact Number :</label></td> 
+                        <td><input  id = "contact" required></td>
+                    </tr>
+                    <tr>
+                    <td id= "contact_validation" style=color:red colspan=2></td></tr>
+                </table>
+                <br/>
+                <input type="button" value="Register" onclick=collapseForm1()> 
+            </form> 
+        </div>
+
+         <!--Registration Form of the vehicles-->
+
+        <div align=center id="Form2" style="display:none">
+            <form  >
+                <H1>Vehicle Registration Form</H1>
+                <table cellspacing=10>
+                    <tr >          
+                        <td><label style=color:red>*</label><label>Vehicle Name :</label></td> 
+                        <td><input type=text id = "vehicle_name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Vehicle Type : </label></td>
+                        <td>
+                            <input type="radio" id="Cycle"name="vehicleType" value="Cycle">Cycle<br/>
+                            <input type="radio" id="MotorCycle"name="vehicleType" value="MotorCycle">Motorcycle<br/>
+                            <input type="radio" id="FourWheelers" name="vehicleType" value="FourWheelers">FourWheelers<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Vehicle Number :</label></td> 
+                        <td><input type="text" id = "vehicle_number" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Employee id :</label></td> 
+                        <td><input type="text" id="Employee_id" readonly disabled></td>
+                    </tr>
+                    <tr>
+                        <td><label>Identification :</label></td> 
+                        <td><input type="text" id = "vehicle_identification"></td>
+                    </tr>
+                    <tr>
+                        <td style=color:red colspan=2 id="validation_message"></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="button" value="Register" onclick=collapseForm2()>
+            </form>    
+        </div>
+
+        <!--Change currency selection code-->
+
+        <div id="choose_currency" style="display:none" align="center">
+            <br/>
+            <table>
+                <tr>
+                    <td><label>Choose Currency :</label></td>
+                    <td><select onchange = changeCurrency() >
+                        <option value="INR" id="INR">INR</option>
+                        <option value="USD" id="USD">USD</option>
+                        <option value="YEN" id="YEN">YEN</option>
+                        <option selected> --select--</option>
+                    </select></td>
+                </tr>
+            </table>
+        </div>     
+
+        <!--Cycle Pass Pricing Details-->
+
+        <div id="CyclePass" align="center" style="display:none">
+            <h3>Cycle Pass Prices</h3>
+            <table border=1>
+                <tr>
+                    <td><label>Daily :</label></td>
+                    <td><input type="radio" value="5" name="cycle_pass" id = "cycle_pass1"><label id = "cp1">5 INR</label><br/></td>
+                </tr>
+            <tr>
+                <td><label>Monthly :</label></td>
+                <td><input type="radio" value="100" name="cycle_pass" id = "cycle_pass2"><label id = "cp2">100 INR</label><br/></td>
+            </tr>
+            <tr>
+                <td><label>Yearly :</label></td>
+                <td><input type="radio" value="500" name="cycle_pass" id = "cycle_pass3"><label id = "cp3">500 INR</label><br/></td>
+            </tr>
+        </table>
+        <br/>
+        <input type = "button" value = "Get Pass" onclick = getCyclePassPrice(getCurrency())>
+        <br/>
+        <br/>
+        </div>
+        
+          <!--Four Wheeler Pass Pricing Details-->
+
+        <div id="FourWheelerPass" align="center" style="display:none">
+            <h3>Four Wheeler Pass Prices</h3>
+            <table border=1>
+                <tr>
+                    <td><label>Daily :</label></td>
+                    <td><input type="radio" value="20" name="FourWheeler_pass" id = "fourwheeler_pass1"><label id = "fwp1">20 INR</label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Monthly :</label></td>
+                    <td><input type="radio" value="500" name="FourWheeler_pass" id = "fourwheeler_pass2"><label id = "fwp2">500 INR</label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Yearly :</label></td>
+                    <td><input type="radio" value="3500" name="FourWheeler_pass" id = "fourwheeler_pass3"><label id = "fwp3">3500 INR</label><br/></td>
+                </tr>
+            </table>
+            <br/>
+            <input type = "button" value = "Get Pass" onclick = getFourWheelerPassPrice(getCurrency())>
+            <br/>
+            <br/>
+        </div>  
+
+          <!--Motorcycle Pass Pricing Details-->
+
+        <div id="MotorcyclePass" align="center" style="display:none">
+            <h3>Motorcycle Pass Prices</h3>
+            <table border=1>
+                <tr>
+                    <td><label>Daily :</label></td>
+                     <td><input type="radio" value="10" name="motorcycle_pass" id = "motorcycle_pass1"><label id = "mcp1">10 INR</label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Monthly :</label></td>
+                    <td><input type="radio" value="200" name="motorcycle_pass" id = "motorcycle_pass2"><label id = "mcp2">200 INR</label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Yearly :</label></td>
+                    <td><input type="radio" value="1000" name="motorcycle_pass" id = "motorcycle_pass3"><label id = "mcp3">1000 INR</label><br/></td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+            <input type = "button" value = "Get Pass" onclick = getMotorCyclePassPrice(getCurrency())>
+            <br/>
+            <br/>
+        </div>
+        <div align="center" id="vehicle_price_message" style=color:red
+        </div>            
+    </BODY>
+</HTML>
+
+
