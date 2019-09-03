@@ -5,21 +5,11 @@
 function collapseForm1() {
     var result = validateForm();
     if( result ) {
-        getEmployeeId();
-    	document.getElementById("Form1").action='signUpPageServlet';
+        return result;
     }
-     return result;  
-}
-
-/*
- * It is a method to get the employee id
- * 
- */
-function getEmployeeId() {
-    var employeeId = document.getElementById("employee_id").value;
-    document.getElementById("emp_id").value = employeeId+1;
-    document.getElementById("employee_id").value=employeeId+1;
-    
+    else {
+    return result;
+    }
 }
 
 /*
@@ -44,7 +34,7 @@ function collapseForm2() {
             } else {
                 x.style.display = "none";
             } 
-        } else if ( document.getElementById("FourWheelers").checked ) {
+        } else if ( document.getElementById("FourWheeler").checked ) {
             var x= document.getElementById("FourWheelerPass");
             if ( x.style.display === "none") {
                 x.style.display = "block";
@@ -60,6 +50,7 @@ function collapseForm2() {
     }
     if( valid && validateResult ) {
         document.getElementById("Form2").style.display = "none";
+        document.getElementById('isValidVehicle').value='true';
         var x = document.getElementById("choose_currency");
         if ( x.style.display === "none") {
             x.style.display = "block";
@@ -69,6 +60,7 @@ function collapseForm2() {
     } else {
         document.getElementById("Form2").style.display = "block";
     }
+    return (valid && validateResult);
 }  
 
 /*
@@ -178,6 +170,7 @@ function getCurrency() {
  *
  */
 function changeCurrency() {
+	window.alert("in change currency");
     if( document.getElementById("Cycle").checked ) {
        if( document.getElementById("USD").selected ) {
             document.getElementById("cp1").innerHTML = "00.07 USD";
@@ -193,6 +186,7 @@ function changeCurrency() {
             document.getElementById("cp3").innerHTML = "500.00 INR";
        }
     } else if ( document.getElementById("MotorCycle").checked ) {
+    	window.alert("in motorCycle currency");	
         if( document.getElementById("USD").selected ) {
             document.getElementById("mcp1").innerHTML = "00.14 USD";
             document.getElementById("mcp2").innerHTML = "02.80 USD";
