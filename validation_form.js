@@ -43,7 +43,7 @@ function validateEmail() {
         document.getElementById("email_validation").innerHTML="Please enter a valid e-mail address!!";
         return false;
     } else {
-    	document.getElementById("email_validation").innerHTML="";
+    document.getElementById("email_validation").innerHTML="";
         return true;
     }  
 }
@@ -81,7 +81,7 @@ function validateConfirmPassword(){
         document.getElementById("confirm_password_validation").innerHTML="Both the passwords do not match!!!";
         return false;
     } else {
-    	document.getElementById("confirm_password_validation").innerHTML="";
+    document.getElementById("confirm_password_validation").innerHTML="";
         return true;
     }
 }
@@ -108,13 +108,54 @@ function validateContact() {
  * @return boolean
  */
 function validateVehicleForm() {
-    if( document.getElementById("vehicle_name").length !== 0 && document.getElementById("vehicle_number").value.length !== 0 ) {
-        return true;
-    } else {
-        return false;
-    }
+	 	var r1 = validateVehicleName();
+	    var r2 = validateVehicleNumber();
+	    var r3 = validateVehicleType();
+	    var r4 = validateEmployeeId();
+	    var isValid = (r1 && r2 && r3&&r4);
+	    return isValid;
 }
 
+function validateVehicleName(){
+	var x = document.getElementById("vehicle_name").value;
+    var expression = /^[a-zA-Z ]*$/;
+    var result = expression.test(x) ;
+    if( result === true && document.getElementById("vehicle_name").value.length > 1 ) {
+		document.getElementById("vehicle_name_message").innerHTML="";
+		return true;
+	} else {
+		document.getElementById("vehicle_name_message").innerHTML="Please enter vehicle name";
+		return false;
+	}
+}
+
+function validateVehicleType(){
+	if( document.getElementById("Cycle").checked || document.getElementById("MotorCycle").checked ||  document.getElementById("Fourheelers").checked ) {
+		document.getElementById("vehicle_type_message").innerHTML="";
+		return true;
+	} else {
+		document.getElementById("vehicle_type_message").innerHTML="Please choose a vehicle type";
+		return false
+	}
+}
+function validateVehicleNumber(){
+	if( document.getElementById("vehicle_number").value.length === 10 ){
+		document.getElementById("vehicle_number_message").innerHTML="";
+		return true;
+	} else {
+		document.getElementById("vehicle_number_message").innerHTML="Please enter vehicle number";
+		return false;
+	}
+}
+function validateEmployeeId(){
+	if( document.getElementById("employ_id").value >0 ){
+		document.getElementById("emp_id_message").innerHTML="";
+		return true;
+	} else {
+		document.getElementById("emp_id_message").innerHTML="Please enter employee id";
+		return false;
+	}
+}
 /*
  * It is a method that validates if the gender 
  * field is selected or not
