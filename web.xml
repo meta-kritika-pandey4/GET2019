@@ -25,4 +25,12 @@
   <servlet-name>SignUpPageServlet</servlet-name> 
   <url-pattern>/signUpPageServlet</url-pattern> 
   </servlet-mapping>
+   <servlet>
+  <servlet-name>VehicleRegistrationServlet</servlet-name> 
+  <servlet-class>com.metacube.get2019.VehicleRegistrationServlet</servlet-class> 
+  </servlet>
+ <servlet-mapping>
+  <servlet-name>VehicleRegistrationServlet</servlet-name> 
+  <url-pattern>/vehicleRegistrationServlet</url-pattern> 
+  </servlet-mapping>
   </web-app>
