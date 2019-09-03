@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * It is a class which holds all queries
- * @author Kritika
+ * @author Vertika
  *
  */
 public class Queries {
@@ -29,6 +29,19 @@ public class Queries {
 				+ password + "', "
 				+ contact + ", '"
 				+ email + "'"
+				+");";
+		System.out.println(query);
+		return query;
+		
+	}
+	
+	public static String addVehicleQuery(String vehicle_name,String vehicle_type, String identification, String vehicle_number,int employee_id) {
+		String query = "insert into vehicle(vehicle_name,vehicle_type,identification,vehicle_number,employee_id) values('" 
+				+ vehicle_name + "', '"
+				+ vehicle_type + "' , '"
+				+ identification + "','"
+				+ vehicle_number + "', "
+				+ employee_id + ""
 				+");";
 		System.out.println(query);
 		return query;
@@ -107,5 +120,5 @@ public class Queries {
 		return query;
 		
 	}
-	
+
 }
