@@ -21,36 +21,32 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/SignUpPageServlet")
 public class SignUpPageServlet extends HttpServlet {
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			response.setContentType("text/html");  
+			response.setContentType("text/html"); 
 			PrintWriter out = response.getWriter();  
-			String isValid=request.getParameter("isValid");
-			if(isValid.equals("true"))
-			{
 				String full_name=request.getParameter("full_name");
 				String gender=request.getParameter("gender");
 				long contact=Long.parseLong(request.getParameter("contact"));
 				String email=request.getParameter("email");
 				String password=request.getParameter("password");
 				String organization=request.getParameter("organization");
-				int employee_id;
 				
 				try{  
 					DatabaseConnection jdbcObj = new DatabaseConnection();
 					Connection con = jdbcObj.connect();
 					Statement st = con.createStatement();
-					int rowsAffected=st.executeUpdate(Queries.addEmployeeQuery(full_name,gender,contact,email,password,organization));
-					ResultSet rs1= st.executeQuery(Queries.getEmployeeId());
-					if(rs1.next())
-					{
-						employee_id=rs1.getInt("curr_emp_id");
-					}
-					
+					st.executeUpdate(Queries.addEmployeeQuery(full_name,gender,contact,email,password,organization));
+					ResultSet rs=st.executeQuery(Queries.getEmployeeId());
+					rs.next();
+					int employee_id = rs.getInt("curr_emp_id");
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('Employee id : " + employee_id + "');");
+				    out.println("</script>");
 					RequestDispatcher rd=request.getRequestDispatcher("VehicleRegistrationForm.html");  
 				    rd.include(request, response);
 			} catch ( SQLIntegrityConstraintViolationException e ) {
 				RequestDispatcher rd=request.getRequestDispatcher("SignUpPage.html");  
 			    rd.include(request, response);
-			    out.println("This email id already exists!");
+			    out.println("<div align=center style='color:white;font-size:15px;'>This email id already exists!</div>");
 				e.printStackTrace();
 			}
 			catch ( Exception e2 ) {
@@ -62,4 +58,5 @@ public class SignUpPageServlet extends HttpServlet {
 			
 					
 	}
-}
+
+
