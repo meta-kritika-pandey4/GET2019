@@ -15,15 +15,15 @@ public class StudentCommands {
 
 	//validation constraints
 	@NotBlank(message="{requiredField}")
-	@Pattern(regexp="/^[a-zA-Z ]*$/",message="{onlyLetters}")
+	@Pattern(regexp="^[a-zA-Z ]*$",message="{onlyLetters}")
 	private String firstName;
 	
 	@NotBlank(message="{requiredField}")
-	@Pattern(regexp="/^[a-zA-Z ]*$/",message="{onlyLetters}")
+	@Pattern(regexp="^[a-zA-Z ]*$",message="{onlyLetters}")
 	private String lastName;
 	
 	@NotBlank(message="{requiredField}")
-	@Pattern(regexp="/^[a-zA-Z ]*$/",message="{onlyLetters}")
+	@Pattern(regexp="^[a-zA-Z ]*$",message="{onlyLetters}")
 	private String fatherName;
 	
 	
