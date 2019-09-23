@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<HTML>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <HEAD>
+        <TITLE>Metacube Parking System</TITLE>
+            <style>
+                A{
+                    margin-left: 20px;
+                    color:white;
+                    font-size:20px;
+                    text-decoration:none;                   
+                   padding-top: 50px;
+                }
+                
+                DIV{
+                    padding:50px 50px 50px;
+
+                   
+                }
+                
+                .dot {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    border:1px solid black;
+                    display: block;
+                    
+                }
+                body{
+                	font-family:Arial Rounded MT;
+                }
+}
+                
+            </style>
+    </HEAD>
+    
+    <BODY>
+    	<!-- Navigation bar -->
+            <NAV style="background-color: black;height:60px;"><BR/>
+                    <A href=#EmployeeRegistration >ADD EMPLOYEE</A>
+                    <A href=#VehicleRegistration>ADD VEHICLE</A>
+                    <A href=#Feedback>GIVE FEEDBACK</A>
+                    <A href=#pricingDetails>PRICING</A>
+                   </NAV>
+                   <img src="parkingimage.jpg" style="width:100%">
+        <DIV id ="metacube_parking" align=center>
+            
+               
+        <!--Registration Form of the employees-->
+
+        <div align=center id="EmployeeRegistration" style="background-color: burlywood;">
+            <form>
+                <H1>Employee Registration Form</H1>
+                <table cellspacing=10>
+                    <tr >          
+                        <td><label style=color:red>*</label><label for="full_name" >Full Name :</label></td> 
+                        <td><input  type=text id = "full_name" required pattern="[a-zA-Z ]*"></td>
+                    </tr>                   
+                    <tr>
+                        <td><label style=color:red>*</label><label>Gender : </label></td>
+                        <td>
+                            <input type="radio" name="gender" value="Male" id = "male" required>Male<br/>
+                            <input type="radio" name="gender" value="Female" id = "female">Female
+                        </td>
+                    </tr>                   
+                    <tr>
+                        <td><label style=color:red>*</label><label >Email id :</label></td> 
+                        <td><input type="email" id = "email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Password :</label></td> 
+                        <td><input type="password" id = "password" required pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[@*$])(?=.*?[0-9]).{8,}"></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label >Confirm Password :</label></td> 
+                        <td><input type="password" id = "confirm_password" required pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}"></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label >Contact Number :</label></td> 
+                        <td><input  id = "contact" required pattern="[0-9]{10,}"></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="Submit" value="REGISTER EMPLOYEE">
+            </form> 
+        </div>
+
+         <!--Registration Form of the vehicles-->
+
+        <div align=center id="VehicleRegistration" style="background-color:cadetblue">
+            <form  >
+                <H1>Vehicle Registration Form</H1>
+                <table cellspacing=10>
+                        <tr >       
+                            <td><label style=color:red>*</label><label>Vehicle Make :</label></td> 
+                            <td><input type=text id = "vehicle_make" required pattern="[a-zA-Z ]*"></td>
+                            </tr>
+                    <tr >          
+                        <td><label style=color:red>*</label><label>Vehicle Model :</label></td> 
+                        <td><input type=text id = "vehicle_name" required pattern="[a-zA-Z ]*"></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Vehicle Type : </label></td>
+                        <td>
+                            <input type="radio" id="Cycle"name="vehicleType" value="Cycle" required>Cycle<br/>
+                            <input type="radio" id="MotorCycle"name="vehicleType" value="MotorCycle" >Motorcycle<br/>
+                            <input type="radio" id="FourWheelers" name="vehicleType" value="FourWheelers">FourWheelers<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Vehicle Number :</label></td> 
+                        <td><input type="text" id = "vehicle_number" required pattern="[A-Za-z]{2}[0-9]{2}[A-Za-z]{2}[0-9]{4}"></td>
+                    </tr>
+                    <tr>
+                        <td><label style=color:red>*</label><label>Employee id :</label></td> 
+                        <td><input type="text" id="Employee_id" readonly disabled></td>
+                    </tr>
+                    <tr>
+                        <td><label>Identification :</label></td> 
+                        <td><textarea rows="4" cols="50" id = "vehicle_identification"></textarea></td>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="REGISTER VEHICLE">
+            </form>    
+        </div>
+
+        <!-- Feedback form-->
+        <div align=center id="Feedback" style="background-color:darkgrey">
+                <form >
+                    <H1>Get In Touch</H1>
+                    <table cellspacing=10>
+                            <tr >       
+                                <td><label style=color:red>*</label><label>Name :</label></td> 
+                                <td><input type=text id = "user_name" required pattern="[a-zA-Z ]*"></td>
+                                </tr>
+                        <tr >          
+                            <td><label style=color:red>*</label><label>Email :</label></td> 
+                            <td><input type=email id = "email" required></td>
+                        </tr>
+                        <tr >          
+                                <td><label style=color:red>*</label><label>Subject :</label></td> 
+                                <td><input type=text id = "subject" required ></td>
+                            </tr>
+                        
+                        <tr>
+                            <td><label>Message :</label></td> 
+                            <td><textarea rows="4" cols="50" id = "vehicle_identification"></textarea></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <input type="submit" value="SEND MAIL">
+                </form>    
+            </div>
+
+            <!-- Div enclosing all the price details -->
+       
+        <DIV ID=pricingDetails>
+        <!--Cycle Pass Pricing Details-->
+
+        <div id="CyclePass" align="center" style=background-color:lightsteelblue >
+            <h2>CYCLE</h2>
+            <form>
+            <div class="dot" align=center>$100/<br/>Month</DIV><br/>
+            <table>
+                <tr>
+                    <td><label>Daily :</label></td>
+                    <td><input type="radio" value="5" name="cycle_pass" id = "cycle_pass1" required><label id = "cp1">$5</label><br/></td>
+                </tr>
+            <tr>
+                <td><label>Monthly :</label></td>
+                <td><input type="radio" value="100" name="cycle_pass" id = "cycle_pass2"><label id = "cp2">$100</label><br/></td>
+            </tr>
+            <tr>
+                <td><label>Yearly :</label></td>
+                <td><input type="radio" value="500" name="cycle_pass" id = "cycle_pass3"><label id = "cp3">$500</label><br/></td>
+            </tr>
+        </table>
+        <br/>
+        <input type = "submit" value = "PURCHASE NOW" >
+
+        <br/>
+        <br/>
+        </div>
+    </form>
+        
+          <!--Four Wheeler Pass Pricing Details-->
+
+        <div id="FourWheelerPass" align="center" style=background-color:peachpuff >
+            <h2>FOUR WHEELER</h2>
+            <form>
+            <div class="dot" align=center>$500/<br/>Month</DIV><br/>
+            <table >
+                <tr>
+                    <td><label>Daily :</label></td>
+                    <td><input type="radio" value="20" name="FourWheeler_pass" id = "fourwheeler_pass1" required><label id = "fwp1">$20 </label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Monthly :</label></td>
+                    <td><input type="radio" value="500" name="FourWheeler_pass" id = "fourwheeler_pass2"><label id = "fwp2">$500</label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Yearly :</label></td>
+                    <td><input type="radio" value="3500" name="FourWheeler_pass" id = "fourwheeler_pass3"><label id = "fwp3">$3500</label><br/></td>
+                </tr>
+            </table>
+            <br/>
+            <input type = "submit" value = "PURCHASE NOW" >
+            <br/>
+            <br/>
+        </div>  
+    </form>
+
+          <!--Motorcycle Pass Pricing Details-->
+
+        <div id="MotorcyclePass" align="center" STYLE=background-color:rosybrown>
+            <h2>MOTORCYCLE</h2>
+            <form>
+            <div class="dot" align=center>$200/<br/>Month</DIV><br/>
+            <table >
+                <tr>
+                    <td><label>Daily :</label></td>
+                     <td><input type="radio" value="10" name="motorcycle_pass" id = "motorcycle_pass1" required><label id = "mcp1">$10</label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Monthly :</label></td>
+                    <td><input type="radio" value="200" name="motorcycle_pass" id = "motorcycle_pass2"><label id = "mcp2">$200 </label><br/></td>
+                </tr>
+                <tr>
+                    <td><label>Yearly :</label></td>
+                    <td><input type="radio" value="1000" name="motorcycle_pass" id = "motorcycle_pass3"><label id = "mcp3">$1000</label><br/></td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+            <input type = "submit" value = "PURCHASE NOW" >
+            <br/>
+            <br/>
+        </div>
+       </form>
+        </div>  
+        </DIV> 
+        </DIV>         
+    </BODY>
+</HTML>
+
+
