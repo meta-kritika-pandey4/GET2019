@@ -1,12 +1,12 @@
 package com.metacube.get2019.view;
 import java.sql.SQLException;
-
 import java.util.List;
 import java.util.Scanner;
 
 import com.metacube.get2019.controller.ProductController;
 import com.metacube.get2019.model.Cart;
 import com.metacube.get2019.model.Product;
+import com.metacube.get2019.util.Constant;
 
 /**
  * This is the main class
@@ -19,29 +19,29 @@ public class Main {
 		//call userAuthentication for getting authentication
 		int userId = userAuthentication(productController);
 		while(userId==-1) {
-			System.out.println("Invalid Login credentials..Login again!!");
+			System.out.println(Constant.INVALID_AUTHENTICATION);
 			userId=userAuthentication(productController);
 		}
 		int choice = 0, productCode = 0, productQuantity;
 		//label 
 		Loop : do {
-			System.out.println("Welcome to Shopping App!!!!\n1.Add product to cart\n2.Update cart\n3.Show cart\n4.Delete product in cart\n5.Exit");
-			System.out.println("Enter choice : ");
+			System.out.println(Constant.WELCOME);
+			System.out.println(Constant.ENTER_CHOICE);
 			try {
 				Scanner scanner = new Scanner(System.in);
 				choice = scanner.nextInt();
 				switch (choice) {
-					case 1 :
+					case Constant.ONE:
 						//list all product in stock
 						showProducts(productController);
-						System.out.println("enter product code : ");
+						System.out.println(Constant.ENTER_PRODUCT_CODE);
 						productCode = scanner.nextInt();
 						Product product=productController.getProductById(productCode);
 						//if product code is valid
 						if (productController.isProductExist(productCode)) {
 							//check if product is already in stock
 							if (!productController.productIsInCart(userId,productCode)) {
-								System.out.println("enter product quantity : ");
+								System.out.println(Constant.ENTER_PRODUCT_QUANTITY);
 								productQuantity = scanner.nextInt();
 								//check quantity
 								if (productQuantity > 0){
@@ -49,24 +49,24 @@ public class Main {
 									//print status after adding product
 									System.out.println(productController.addProductToCart(userId,productCode,productQuantity));
 									}else{
-										System.out.println("Entered Quantity not in stock");
+										System.out.println(Constant.QUATNTIY_NOT_IN_STOCK);
 									}
 								} else {
-									System.out.println("invalid quantity");
+									System.out.println(Constant.INVALID_QUANTITY);
 								}
 							} else {
-								System.out.println("product already is in your cart");
+								System.out.println(Constant.PRODUCT_ALREADY_IN_CART);
 							}
 						} else {
-							System.out.println("invalid product code");
+							System.out.println(Constant.INVALID_PRODUCT_CODE);
 						}
 						break;
-					case 2 :
-						System.out.println("enter product code : ");
+					case Constant.TWO :
+						System.out.println(Constant.ENTER_PRODUCT_CODE);
 						productCode = scanner.nextInt();
 						//check if product is in cart
 						if (productController.productIsInCart(userId,productCode)) {
-							System.out.println("enter product quantity : ");
+							System.out.println(Constant.ENTER_PRODUCT_QUANTITY);
 							productQuantity = scanner.nextInt();
 							Product productToUpdate=productController.getProductById(productCode);
 							//check if product quantity is valid
@@ -75,25 +75,25 @@ public class Main {
 								//print status after updating product
 								System.out.println(productController.updateProductInCart(userId,productQuantity,productToUpdate));}
 								else {
-									System.out.println("The entered quantity is not in stock");
+									System.out.println(Constant.QUATNTIY_NOT_IN_STOCK);
 								}
 							} else {
-								System.out.println("invalid quantity");
+								System.out.println(Constant.INVALID_QUANTITY);
 							}
 						} else {
-							System.out.println("product is not in your cart");
+							System.out.println(Constant.PRODUCT_NOT_IN_CART);
 						}
 						break;
-					case 3 :
+					case Constant.THREE :
 						//list for showing cart items
 						List<Cart> cartList = productController.showCart(userId);
-						System.out.println("Product Code\tProduct Name\tProduct Type\tProduct Quantity\tPrice");
+						System.out.println(Constant.SHOW_CART);
 						for (Cart cart : cartList) {
 							System.out.println(cart.toString());
 						}
 						break;
-					case 4 :
-						System.out.println("enter product code : ");
+					case Constant.FOUR:
+						System.out.println(Constant.ENTER_PRODUCT_CODE);
 						productCode = scanner.nextInt();
 						//check if product is in cart
 						if (productController.productIsInCart(userId,productCode)) {
@@ -101,7 +101,7 @@ public class Main {
 							//print status after deleting product
 							System.out.println(productController.deleteProduct(userId, productToDelete));
 						} else {
-							System.out.println("product is not in your cart");
+							System.out.println(Constant.PRODUCT_NOT_IN_CART);
 						}
 						break;
 					default :
@@ -111,12 +111,11 @@ public class Main {
 			} catch (Exception e) {
 				//exception for input mismatch
 				e.printStackTrace();
-				System.out.println("something went wrong");
 				continue Loop;
 			}
 			//exit if choice is 5
 		} while (choice != 5);
-		System.out.println("Thank you for using Shopping App");
+		System.out.println(Constant.THANK_YOU);
 	}
 	
 	/**
@@ -124,7 +123,7 @@ public class Main {
 	 */
 	private static void showProducts(ProductController productController) {
 		List<Product> productList = productController.getProductList();
-		System.out.println("Product Code\tProduct Name\tProduct Type\tAvailable\tPrice");
+		System.out.println(Constant.SHOW_CART);
 		for (Product product : productList) {
 			System.out.println(product);
 		}
@@ -137,9 +136,9 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		String email, password;
 		int userId;
-		System.out.println("Enter Email : ");
+		System.out.println(Constant.ENTER_EMAIL);
 		email = scanner.nextLine();
-		System.out.println("Enter Password : ");			
+		System.out.println(Constant.ENTER_PASSWORD);			
 		password = scanner.nextLine();
 		if(!productController.userAuthentication(email, password)) {
 			return -1;
