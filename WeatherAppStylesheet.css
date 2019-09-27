@@ -1,0 +1,265 @@
+        * {
+            text-decoration: none;
+            color: white;
+            font-family: myFirstFont;
+        }
+        
+        @font-face {
+            font-family: myFirstFont;
+            src: url(fonts/ubuntu-b.ttf);
+        }
+        
+        @font-face {
+            font-family: mySecondFont;
+            src: url(fonts/ubuntu-r.ttf);
+        }
+        
+        @font-face {
+            font-family: myThirdFont;
+            src: url(fonts/ubuntu-m.ttf);
+        }
+        
+        header {
+            background-image: url(images/homebg.png);
+        }
+        
+        ul.navigation_tab2 {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 25%;
+            font-size: 14px;
+        }
+        
+        nav.navigation_bar {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 25px;
+            margin-left: 220px;
+        }
+        
+        .navigation_tab3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 8%;
+            margin-right: 90px;
+        }
+        
+        .MostFunApp {
+            display: flex;
+            flex-direction: row;
+            margin-top: 40px;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+        
+        .MostFunApp_txt {
+            margin-left: 300px;
+            font-size: 3.5em;
+            width: 35%;
+        }
+        
+        #download {
+            background-color: #FF7E39;
+            font-size: 15px;
+            padding: 20px 30px;
+            border-radius: 7px;
+            border: 0;
+        }
+        
+        #features {
+            background-color: #5070B6;
+            font-size: 15px;
+            padding: 20px 30px;
+            border-radius: 7px;
+            border: 0;
+        }
+        
+        .MostFunApp_img {
+            padding-top: 80px;
+            padding-left: 60px;
+            padding-bottom: 130px;
+        }
+        
+        .heading {
+            color: #4679EB;
+            text-align: center;
+            font-size: 3em;
+            margin-right: 25px;
+        }
+        
+        .subheading {
+            color: gray;
+            text-align: center;
+            font-size: 1.5em;
+            font-family: mySecondFont;
+            margin-right: 25px;
+        }
+        
+        .PerfectFeatures {
+            margin-top: 90px;
+        }
+        
+        .perfectFeaturesContent {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 150px;
+            padding-left: 200px;
+            padding-right: 300px;
+        }
+        
+        .PerfectFeatureImage {
+            margin-top: 200px;
+            text-align: center;
+            border: solid black;
+        }
+        
+        .featurePoint {
+            border: solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 30%;
+        }
+        
+        .para_heading {
+            color: black;
+            font-size: 2em;
+            font-family: myThirdFont;
+        }
+        
+        .para_subheading {
+            color: gray;
+            font-size: 1.2em;
+            font-family: mySecondFont;
+        }
+        
+        .icon {
+            color: #FF7E39;
+            padding-top: 40px;
+            align-self: flex-start;
+        }
+        
+        #img1 {
+            transform: skewY(5deg);
+        }
+        
+        #img3 {
+            transform: skewY(-5deg);
+        }
+        
+        .Screenshots {
+            margin-top: 150px;
+        }
+        
+        .ScreenshotsContentSunny {
+            border: solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 100px;
+        }
+        
+        .screenshotPoint1 {
+            border: solid black;
+            padding-left: 520px;
+        }
+        
+        .cloudy {
+            transform: rotate(90deg);
+            color: #DDDDDD;
+            position: absolute;
+            font-family: mySecondFont;
+            font-size: 12em;
+            font-weight: lighter;
+        }
+        
+        .screenshotPoint2 {
+            border: solid black;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            padding-left: 200px;
+            padding-right: 400px;
+        }
+        
+        .ss_content {
+            color: gray;
+            font-family: mySecondFont;
+            font-size: 1.53em;
+        }
+        
+        .ss_heading {
+            color: black;
+            font-family: myThirdFont;
+            font-size: 2em;
+        }
+        
+        .reviews {
+            color: black;
+        }
+        
+        .footer_section {
+            background-color: #383856;
+            height: 250px;
+        }
+        
+        .footer-link {
+            color: #ABAEBB;
+        }
+        
+        .rights_registered {
+            text-align: center;
+        }
+        
+        .footer-nav:after {
+            content: " ";
+            display: block;
+            border-bottom: 1px solid white;
+        }
+        
+        .before_footer {
+            border: 1px solid black;
+            background-image: url("images/downloadbg.png");
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        
+        .inverted_comma {
+            color: #4679EB;
+        }
+        
+        .reviews {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        
+        .review_content {
+            color: black;
+            width: 50%;
+            font-size: 1.8em;
+            font-family: myThirdFont;
+            border: 1px solid black;
+        }
+        
+        .review_section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        
+        .author {
+            font-size: 1.5em;
+        }
+        
+        .review_n {
+            width: 50%;
+        }
